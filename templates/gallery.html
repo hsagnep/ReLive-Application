@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <a href="/download-zip"><button>Download Files</button></a>
+    <style>
+.container,dattable {
+    position: relative;
+  top: 0;
+  left: 0;
+}
+.werk{
+ margin-top: 20px;
+  margin-bottom: 20px;
+}
+</style>
+
+</head>
+<body>
+<div class="container">
+
+    <div class="row">
+
+        <div class="">
+            <h1 class="page-header">Gallery</h1>
+        </div>
+        <hr>
+        {% for image_name in image_names %}
+        <div class="werk">
+            <img class="img-responsive" src=" {{url_for('send_image', filename=image_name)}}">
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

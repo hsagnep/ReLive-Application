@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Upload</title>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+.center {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+}
+
+#upload-form, #file-picker{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+a button{background-color: #c70039;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+a button:hover{
+    background-color: #c70039;
+    color: white;
+    font-size: 20px;
+}
+#upload-button:hover{
+    background-color: #c70039;
+  color: white;
+}
+input[type="submit"]:hover{
+     background-color: #c70039;
+  color: white;
+}
+strong{
+    color: #581845;
+
+}
+body{
+    background-color:#ffc305;
+}
+
+
+</style>
+
+</head>
+
+<body>
+<strong>Re:Live Menu</strong><br>
+<div class="center">
+
+<form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+
+    <input id="file-picker" type="file" name="file" accept="image/*" multiple>
+    <div id="msg"></div>
+    <input type="submit" value="Upload!" id="upload-button">
+</form>
+<a href="http://10.0.0.10:5000/gallery"><button>Gallery</button></a>
+    </div>
+</body>
+<script>
+
+    $("#file-picker").change(function(){
+
+        var input = document.getElementById('file-picker');
+
+        for (var i=0; i<input.files.length; i++)
+        {
+        //koala.jpg, koala.JPG substring(index) lastIndexOf('a') koala.1.jpg
+            var ext= input.files[i].name.substring(input.files[i].name.lastIndexOf('.')+1).toLowerCase()
+
+            if ((ext == 'jpg') || (ext == 'jpeg'))
+            {
+
+            }
+
+
+        }
+
+
+    } );
+
+</script>
+
+</html>
